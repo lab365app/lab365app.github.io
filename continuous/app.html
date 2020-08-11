@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../style/images/favicon.png">
+  <title>LAB 365 - (re)programe, (re)crie, (re)volucione todos os dias</title>
+  <link rel="stylesheet" type="text/css" href="../style/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../style/css/plugins.css">
+  <link rel="stylesheet" type="text/css" href="../style/revolution/css/settings.css">
+  <link rel="stylesheet" type="text/css" href="../style/revolution/css/layers.css">
+  <link rel="stylesheet" type="text/css" href="../style/revolution/css/navigation.css">
+  <link rel="stylesheet" type="text/css" href="../style/type/type.css">
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link rel="stylesheet" type="text/css" href="../style/css/color/purple.css">
+  <script type="text/javascript">
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+    var email = getParameterByName('email');
+    var nome = getParameterByName('nome');
+  </script>
+</head>
+<body>
+  <div class="content-wrapper">
+    <div class="wrapper gray-wrapper">
+      <div class="container inner" style="padding-top:2rem;">
+        <h2 class="section-title larger text-center">Quase lá <script>if(nome)document.write(nome);</script> !</h2>
+        <h3 class="display-4 text-center">Estamos construindo um curso moldado <br class="d-none d-lg-block" />especificamente para você.</h3>
+        <div class="row">
+          <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <figure><img src="#" srcset="../style/images/concept/concept26.png 1x, ../style/images/concept/concept26@2x.png 2x" alt="" /></figure>
+          </div>
+          <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="space50"></div>
+        <div class="row">
+          <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <form class="form-inline" id="form">
+              <label class="sr-only" for="inlineFormInputName3">Nome</label>
+              <input type="text" class="form-control mb-20 mr-sm-2" id="nome" placeholder="Nome">
+              <label class="sr-only" for="inlineFormInputGroupUsername3">Email</label>
+              <div class="input-group mb-20 mr-sm-2">
+                <input type="email" class="form-control" id="email" placeholder="Email">
+              </div>
+              <br />
+              <button type="submit" class="btn mb-20 ml-10 ml-md-0" id="submit-form">Me avise quando estiver pronto!</button>
+            </form>
+            <h2 class="section-title larger text-center" id="success"></h2>
+            <!-- /form -->
+          </div>
+          <!-- /column -->
+        </div>
+        <!--/.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.wrapper -->
+  </div>
+  <!-- /.content-wrapper -->
+  <script src="../style/js/jquery.min.js"></script>
+  <script type="text/javascript">
+    if (email){
+      document.getElementById("email").placeholder=email;
+    }
+    if (nome){
+      document.getElementById("nome").placeholder=nome;
+    }
+
+    url = 'https://script.google.com/macros/s/AKfycbycVrbNlunXPohVjVlrKWcrih2zDo1BQH4WNEiLrA9Bv72wZfeu/exec'
+
+    $('#submit-form').on('click', function(e) {
+      e.preventDefault();
+      var jqxhr = $.ajax({
+        url: url,
+        method: "GET",
+        dataType: "json",
+        data: {"Data":new Date().toLocaleString(), 
+                "Nome":!nome ? document.getElementById("nome").value : nome, 
+                "Email":!email ? document.getElementById("email").value : email}
+      }).success(function(){
+        document.getElementById('form').style.display = 'none';
+        document.getElementById('success').innerHTML = 'Boa! Em breve te avisaremos.';
+      });
+    })
+
+    
+  </script>
+  
+  <script src="../style/js/popper.min.js"></script>
+  <script src="../style/js/bootstrap.min.js"></script>
+  <script src="../style/revolution/js/jquery.themepunch.tools.min.js"></script>
+  <script src="../style/revolution/js/jquery.themepunch.revolution.min.js"></script>
+  <script src="../style/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+  <script src="../style/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+  <script src="../style/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+  <script src="../style/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+  <script src="../style/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+  <script src="../style/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+  <script src="../style/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+  <script src="../style/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+  <script src="../style/revolution/js/extensions/revolution.extension.video.min.js"></script>
+  <script src="../style/js/plugins.js"></script>
+  <script src="../style/js/scripts.js"></script>
+</body>
+</html>
