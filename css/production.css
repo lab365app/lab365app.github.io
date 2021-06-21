@@ -20,7 +20,7 @@
     pointer-events: auto;
   }
   .modal > div {
-    width: 40%;
+    width: 50%;
     position: relative;
     margin: 4% auto;
     padding: 15px 20px;
@@ -39,4 +39,31 @@
     border-radius: 50%;
     font-size: 16px;
     color: #8d0000;
+  }
+
+  @media (max-width: 650px){
+    .modal > div {
+      width: 90%;
+      position: relative;
+      margin: 10% auto;
+      padding: 15px 20px;
+      background: #fff;
+      border-radius: 1%;
+    }
+    .span-3, .span-one-fourth{
+      flex-basis: 50%;
+      max-width: 45%;
+      margin: 2%;
+    }
+  }
+
+  @media (min-width:651px) and (max-width: 1000px){
+    .modal > div {
+      width: 65%;
+      position: relative;
+      margin: 5% auto;
+      padding: 15px 20px;
+      background: #fff;
+      border-radius: 1%;
+    }
   }
